@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const dbConnect = require('./config/dbConnect')
 const authRouter = require("./routes/authRoute");
+const recipeRouter = require('./routes/recipeRoute')
 require('dotenv').config();
 const PORT = process.env.PORT || 4000 ;
 const app = express()
@@ -16,6 +17,7 @@ app.use(cookieParser());
 
 
 app.use('/api/user', authRouter);
+app.use('/api/recipe', recipeRouter);
 
 
 app.listen(PORT, () => {
